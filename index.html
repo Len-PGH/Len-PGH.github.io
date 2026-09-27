@@ -135,6 +135,31 @@
   .split-key i.sw.pub{background:var(--accent-dim)}
   .split-key i.sw.priv{background:#4a5769}
 
+
+  /* ── year list (ClueCon) ───────────────────────────────────── */
+  .years{margin-top:18px}
+  .yr{display:grid; grid-template-columns:62px 1fr; gap:18px; padding:16px 0; border-bottom:1px solid var(--line-soft)}
+  .yr:last-child{border-bottom:0}
+  .yr .y{
+    font-size:.95rem; font-weight:680; color:var(--fg-faint);
+    font-variant-numeric:tabular-nums; letter-spacing:-.01em; padding-top:1px;
+  }
+  .yr h3{margin:0 0 5px; font-size:1rem; font-weight:650}
+  .yr h3 a{color:var(--fg)}
+  .yr h3 a:hover{color:var(--accent)}
+  .yr p{margin:0 0 8px; color:var(--fg-dim); font-size:.94rem}
+  .yr .kit{display:flex; flex-wrap:wrap; gap:6px; margin-top:9px}
+  .yr .kit span{
+    font-size:.74rem; color:var(--fg-faint); background:var(--bg-soft);
+    border:1px solid var(--line); border-radius:999px; padding:2px 9px;
+  }
+  .yr .role{
+    font-size:.74rem; border-radius:999px; padding:2px 9px; border:1px solid var(--line);
+    background:#1d2733; color:var(--fg-dim); margin-left:8px; vertical-align:2px; font-weight:500;
+  }
+  .yr .role.sole{color:#8ee79b; background:rgba(63,185,80,.10); border-color:rgba(63,185,80,.32)}
+  @media (max-width:560px){ .yr{grid-template-columns:1fr; gap:4px} }
+
   /* ── cards ─────────────────────────────────────────────────── */
   .grid-cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(236px,1fr)); gap:12px; margin-top:18px}
   .card{
@@ -409,16 +434,99 @@
       <span class="foot"><span class="src">goair.signalwire.io</span><span class="share">contributor</span></span>
     </a>
   </div>
+
+  <h2>ClueCon</h2>
+  <p class="note">
+    The maker challenges and stage tooling I've built for ClueCon — the annual
+    FreeSWITCH and telephony developer conference.
+  </p>
+  <div class="years">
+
+    <div class="yr">
+      <div class="y">2026</div>
+      <div>
+        <h3><a href="https://github.com/Len-PGH/prompt_pit">The Prompt Pit</a><span class="role sole">sole author</span></h3>
+        <p>
+          A live, esports-style control room for the Vibe Coding Championship. One container drives
+          every screen in the room — stage, scoreboard, admin — and lets the whole audience vote from
+          their phones three ways: on the web, by SMS, or by calling a number and telling an AI agent
+          who they're backing.
+        </p>
+        <div class="kit"><span>Node.js</span><span>Docker</span><span>SMS voting</span><span>voice agent</span></div>
+      </div>
+    </div>
+
+    <div class="yr">
+      <div class="y">2025</div>
+      <div>
+        <h3><a href="https://github.com/signalwire/ClueCon_Coder_Games">Coder Games — Maker Challenge</a><span class="role sole">sole author</span></h3>
+        <p>
+          Built and maintain the SignalWire Maker Challenge for
+          <a href="https://www.cluecon.com/coder-games">ClueCon Coder Games</a>: an ESP32 whose LEDs are
+          driven from the phone network, one sketch reacting to an inbound SMS and another to a voice
+          call, with the wiring diagram and credentials scaffold so entrants can start from working code.
+          Paired with an <a href="https://github.com/Len-PGH/2025">LED control agent</a> that takes the
+          colour and on/off state by voice.
+        </p>
+        <div class="kit"><span>ESP32</span><span>Arduino C++</span><span>SMS</span><span>voice agent</span></div>
+      </div>
+    </div>
+
+    <div class="yr">
+      <div class="y">2023</div>
+      <div>
+        <h3><a href="https://github.com/Len-PGH/Cluecon2023">Maker Challenge — ESP32-S3</a><span class="role sole">sole author</span></h3>
+        <p>
+          Connect a phone call from a button press. Five sketches that scale up from "the board joined
+          wifi, send an SMS" to a physical button placing a call, with an optional DHT11 reading riding
+          along — plus parts list, wiring photos and per-sketch write-ups.
+        </p>
+        <div class="kit"><span>ESP32-S3 WROOM</span><span>Arduino C++</span><span>DHT11</span></div>
+      </div>
+    </div>
+
+    <div class="yr">
+      <div class="y">2021</div>
+      <div>
+        <h3><a href="https://github.com/signalwire/freeswitch-cluecon-lab">FreeSWITCH ClueCon Lab</a><span class="role">contributor</span></h3>
+        <p>The hands-on FreeSWITCH lab used at the conference.</p>
+        <div class="kit"><span>FreeSWITCH</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Microcontrollers</h2>
+  <p class="note">Small boards talking to the phone network.</p>
+  <div class="grid-cards">
+    <a class="card" href="https://github.com/Len-PGH/Cluecon2023">
+      <span class="name">ESP32-S3 call button</span>
+      <span class="desc">Button press places a real phone call; wifi-connect and SMS variants, optional DHT11</span>
+      <span class="foot"><span class="src">Arduino C++</span><span class="share sole">sole author</span></span>
+    </a>
+    <a class="card" href="https://github.com/signalwire/ClueCon_Coder_Games">
+      <span class="name">Phone-controlled LEDs</span>
+      <span class="desc">ESP32 LEDs driven by an inbound SMS or a voice call, with wiring diagram</span>
+      <span class="foot"><span class="src">Arduino C++</span><span class="share sole">sole author</span></span>
+    </a>
+    <a class="card" href="https://github.com/Len-PGH/ESP32-AHT10-OLED">
+      <span class="name">ESP32 / AHT10 / OLED</span>
+      <span class="desc">Temperature and humidity on a little OLED, reporting over HTTP</span>
+      <span class="foot"><span class="src">Arduino C++</span><span class="share sole">sole author</span></span>
+    </a>
+    <a class="card" href="https://github.com/Len-PGH/Sensor-ai">
+      <span class="name">Sensor AI</span>
+      <span class="desc">ESP8266 and DHT11 into ThingSpeak, read back to callers by a voice agent</span>
+      <span class="foot"><span class="src">Perl</span><span class="share sole">sole author</span></span>
+    </a>
+  </div>
+
   <h2>Side projects</h2>
   <ul class="plain">
     <li><a href="https://github.com/Len-PGH/fusionpbx_apps">FusionPBX apps</a>
       — <span class="what">Debian packages for FusionPBX</span></li>
     <li><a href="https://github.com/Len-PGH/fusionpbx-jitsimeet">FusionPBX + Jitsi Meet</a>
       — <span class="what">embedding a Jitsi room inside FusionPBX</span></li>
-    <li><a href="https://github.com/Len-PGH/ESP32-AHT10-OLED">ESP32 / AHT10 / OLED</a>
-      — <span class="what">sensor readings over HTTP</span></li>
-    <li><a href="https://github.com/Len-PGH/Sensor-ai">Sensor AI</a>
-      — <span class="what">ESP8266 and DHT11 feeding ThingSpeak</span></li>
   </ul>
 
   <footer>
